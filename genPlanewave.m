@@ -1,9 +1,9 @@
 function genPlanewave()
-    lambda  = 1e-6;                       % The wavelength          [m]
+    lambda  = 1e-6;                         % The wavelength          [m]
     theta   = 10;                           % The angle z axis        [rad]
-    alfa    = 0;                       % The phase constant      [ ]
-    y       = linspace(0, 1e-5, 500);      % y axis for sim          [m]
-    z       = linspace(0, 1e-5, 500);      % z axis for sim          [m]
+    alfa    = 0;                            % The phase constant      [ ]
+    y       = linspace(0, 1e-5, 500);       % y axis for sim          [m]
+    z       = linspace(0, 1e-5, 500);       % z axis for sim          [m]
     s       = [sind(theta), cosd(theta)];   % The directional vector
     
     % Call the function that generates a plane wave
@@ -51,7 +51,7 @@ function [U] = planewave(y,z,s,lambda,alfa)
 
     % Define the wavenumber
     k = (2 * pi) / lambda;
-    
+    z
     % Define the complex amplitude
     A_0 = 1;
     U = (A_0 * exp(1i * ((k * [Y + Z]) + alfa)));

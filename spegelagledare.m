@@ -1,0 +1,89 @@
+function spegelagledare()
+    % Parametrar
+    d           = ;  % Bredden av vågledaren 
+    lambda      = ;  % Vågländen på ljuset
+    M           = ;  % Max anttalet moder som ryms i spegelvågledaren
+    
+    % Beräkna de olika vinklarna
+    theta = ;
+    
+    % Definera kantverktorer till simulering
+    z       = ; % z kant
+    y       = ; % y kant
+    
+    % För definera en matris där alla komplexa amplituder kan sparas.
+    Uall    = ;
+    
+    % Loopa igenom alla moder och beräkna den komplexa amplituden
+    for m = 1: M
+        % Beräkna riktnings vektorerna
+        s1      = []; % Riktnings cosinen för vågen i +y
+        s2      = []; % Riktnings cosinen för vågen i -y
+        
+        % Beräkna fas skillnaden som ska läggas på på den andra vågen
+        alfa    = ;                     % fas skillnaden
+    
+        % Generera vågorna
+        U1  = planewave();       % Den komplexa amplituden i +theta
+        U2  = planewave();    % Den komplexa amplituden i -theta
+        
+        % Addera ihop vågorna
+        U   = ;
+        
+        % Spara resultatet i den fördefinnerade variabeln
+        Uall;
+    end
+    
+    
+    %% Generera resultat bilder
+    I       = abs(Uall).^2;
+    Isnitt  = reshape(I(:, 1, :), 200, 7) / 4 + (1: M) * 1.5;
+    
+    idx     = 1;
+    Rows    = 4;
+    figure(1);
+    for m = 1: M
+        if m == 4
+            subplot(Rows, 1, m)
+            imagesc(I(:, :, m))
+            colormap('gray')
+            axis xy
+            axis tight
+            yticks([1, 100, 200])
+            yticklabels({'-1','0','1'})
+            xticks([1 500 1000])
+            xticklabels({'0','5','10'})
+            xlabel('z [\mum]','fontsize',16)
+            title("m = " + m)
+    
+            figure(2)
+            idx     = 1;
+            Rows    = 3;
+        else
+            subplot(Rows, 1, idx)
+            imagesc(I(:, :, m))
+            colormap('gray')
+            axis tight
+            yticks([1, 100, 200])
+            yticklabels({'-1','0','1'})
+            xticks([])
+            xticklabels({})
+            title("m = "+m)
+    
+            idx = idx + 1;
+        end
+    
+    end
+            xticks([1 500 1000])
+            xticklabels({'0','5','10'})
+            xlabel('z [\mum]','fontsize',16)
+    
+    figure(3)
+    set(gcf,'Position',[10, 10, 700, 200])
+    plot(Isnitt, y * 1e6, 'linewidth', 2)
+    lgh = legend('1', '2', '3', '4', '5', '6', '7', 'location', 'west');
+    lgh.Title.String = "Mode";
+    ylabel('y [\mu m]', 'FontSize', 16)
+    xticks([])
+    xlabel('Intensitet (godtycklig enhet)')
+end
