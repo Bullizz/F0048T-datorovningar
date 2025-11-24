@@ -17,7 +17,6 @@ function [U] = planewave(y,z,s,lambda,alfa)
 
     % Define the wavenumber
     k = (2 * pi) / lambda;
-    z
     % Define the complex amplitude
     A_0 = 1;
     U = (A_0 * exp(1i * ((k * [Y + Z]) + alfa)));
