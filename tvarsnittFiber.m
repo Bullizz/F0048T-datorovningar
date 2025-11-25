@@ -10,7 +10,7 @@ function tvarsnittFiber()
     
     % Vacume Wavelength and wavenumber
     lambda0 = 1.5e-6;
-    k = 2*pi/lambda0;
+    k = (2 * pi) / lambda0;
     
     %TODO: 
     % Use the singlemod function to calculate the crosssection U
@@ -18,7 +18,7 @@ function tvarsnittFiber()
     % assign it to the variable I.
     
     % Exempel på hur man använder singelmod
-    [ U, beta, gamma, kt, r] = singelmod(n_1,n_2,lambda0,a);
+    [ U, beta, gamma, kt, r] = singelmod(n_1, n_2, lambda0, a);
     
     % Tilldela det beräknade effektiva brytningsindex
     n_eff = beta / k;

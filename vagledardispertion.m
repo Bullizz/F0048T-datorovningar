@@ -15,7 +15,7 @@ function vagledardispertion()
     v_2 = v_0 + delta_nu;
     
     % Exempel hur man anropar singelmodfunktionen
-    % [ ~, b, ~, ~, ~ ] = singelmod(n1,n2,lambda0,a );
+    % [ ~, b, ~, ~, ~ ] = singelmod(n1,n2,lambda0,a );  
     % Beräkna mha singelmod() beta för tre olika frekvenserna
     
     [ ~, bm, ~, ~, ~ ] = singelmod(n1, n2, c / v_1, a); % frekvensen lägre än center frekvensen
